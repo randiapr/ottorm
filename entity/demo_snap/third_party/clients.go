@@ -1,4 +1,4 @@
-package entity
+package thirdparty
 
 type Clients struct {
 	ClientId     string `gorm:"primaryKey"`
