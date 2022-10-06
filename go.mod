@@ -3,6 +3,7 @@ module github.com/randiapr/ottorm
 go 1.19
 
 require (
+	github.com/google/uuid v1.3.0
 	github.com/pressly/goose/v3 v3.7.0
 	gorm.io/driver/mysql v1.3.6
 	gorm.io/driver/postgres v1.3.10
