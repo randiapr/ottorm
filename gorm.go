@@ -1,7 +1,6 @@
 package ottorm
 
 import (
-	"embed"
 	"fmt"
 	"log"
 	"os"
@@ -16,7 +15,7 @@ import (
 
 func InitDbConnection(
 	database, env, host, user, password, name, port, sslMode string,
-	embedFs embed.FS, cfg ...gorm.Config) (*gorm.DB, error) {
+	cfg ...gorm.Config) (*gorm.DB, error) {
 	// init connection db with default postgres
 	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=Asia/Jakarta",
 		host, user, password, name, port, sslMode)
