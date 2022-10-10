@@ -7,7 +7,6 @@ import (
 	"os"
 	"time"
 
-	goose "github.com/pressly/goose/v3"
 	"github.com/randiapr/ottorm/constant"
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/postgres"
@@ -52,15 +51,6 @@ func InitDbConnection(
 		db, err = gorm.Open(postgres.Open(dsn), gormCfg)
 	}
 	if err != nil {
-		return nil, err
-	}
-	// start embeded migrations using goose
-	goose.SetBaseFS(embedFs)
-	if err := goose.SetDialect(database); err != nil {
-		return nil, err
-	}
-	dbRaw, _ := db.DB()
-	if err := goose.Up(dbRaw, "migrations"); err != nil {
 		return nil, err
 	}
 	return db, nil
